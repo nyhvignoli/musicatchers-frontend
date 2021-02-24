@@ -1,16 +1,9 @@
 import React from 'react';
-import NavBar from '../src/components/NavBar/NavBar';
-import BaseForm from '../src/components/BaseForm/BaseForm';
+import Router from '../src/router/Router';
 
 const App = () => {
   return (
-    <div>
-      <header>
-        <h1>MusiCatchers</h1>
-        <NavBar/>
-        <BaseForm/>
-      </header>
-    </div>
+    <Router />
   );
 };
 
