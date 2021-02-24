@@ -1,9 +1,12 @@
 import React from 'react';
 import Router from '../src/router/Router';
+import { AppContainer } from '../src/global/styles';
 
 const App = () => {
   return (
-    <Router />
+    <AppContainer>
+      <Router />
+    </AppContainer>
   );
 };
 
