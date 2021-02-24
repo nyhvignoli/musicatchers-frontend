@@ -1,6 +1,8 @@
 import React from 'react';
-import { MainContainer, LogoContainer, Logo, LoginContainer } from './styles';
+import { MainContainer, LogoContainer, Logo, LoginContainer, ButtonContainer } from './styles';
+import Button from '@material-ui/core/Button';
 import musiCatchersLogo from '../../assets/musicatchers-logo.png'
+import BaseForm from '../../components/BaseForm/BaseForm';
 
 const HomeScreen = () => {
   return (
@@ -9,7 +11,10 @@ const HomeScreen = () => {
         <Logo src={musiCatchersLogo} alt={'Logo da MusiCatchers: Ondas sonoras em tons de roxo e azul'}/>
       </LogoContainer>
       <LoginContainer>
-        <p>Formulário de Login</p>
+        <BaseForm/>
+        <Button color="secondary">
+          Cadastre-se
+        </Button>
       </LoginContainer>
     </MainContainer>
   );
