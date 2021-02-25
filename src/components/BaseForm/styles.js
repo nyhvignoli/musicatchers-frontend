@@ -13,6 +13,7 @@ export const FormContainer = styled.form`
 
 export const StyledTextField = styled(TextField)`
     background-image: linear-gradient(
+        to left,
         rgba(110, 93, 255, 1),
         rgba(201, 71, 255, 1)
     );
