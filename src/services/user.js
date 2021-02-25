@@ -5,7 +5,17 @@ import { goToMusicFeed } from '../router/coordinator';
 export const signup = (body, history) => {
     axios.post(`${BASE_URL}/user/signup`, body)
     .then(res => {
-        localStorage.setItem('token', res.data.token);
+        window.localStorage.setItem('token', res.data.token);
+        goToMusicFeed(history);
+    }).catch(error => {
+        console.log(error.message);
+    });
+};
+
+export const login = (body, history) => {
+    axios.post(`${BASE_URL}/user/login`, body)
+    .then(res => {
+        window.localStorage.setItem('token', res.data.token);
         goToMusicFeed(history);
     }).catch(error => {
         console.log(error.message);

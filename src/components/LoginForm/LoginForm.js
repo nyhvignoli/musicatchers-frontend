@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { FormContainer, StyledTextField, StyledButton } from '../BaseForm/styles';
 import { useForm } from '../../hooks/useForm';
+import { login } from '../../services/user';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -11,17 +13,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LoginForm = (props) => {
+const LoginForm = () => {
     const classes = useStyles();
+    const history = useHistory();
     const { form, onChange } = useForm({
         email: '',
         password: ''
     });
 
+    const onSubmitForm = (event) => {
+        event.preventDefault();
+        login(form, history);
+    };
+
     return (
         <div>
-            <FormContainer className={classes.root} noValidate autoComplete="off">
-                <StyledTextField 
+            <FormContainer
+                onSubmit={onSubmitForm} 
+                className={classes.root} 
+                autoComplete="off"
+            >
+                <StyledTextField
+                    required 
                     label='E-mail' 
                     type='email'
                     name='email'
@@ -32,6 +45,7 @@ const LoginForm = (props) => {
                     fullWidth
                 />
                 <StyledTextField 
+                    required
                     label='Senha' 
                     type='password'
                     name='password'
@@ -42,6 +56,7 @@ const LoginForm = (props) => {
                     fullWidth
                 />        
                 <StyledButton 
+                    type='submit'
                     variant="outlined" 
                     color="secondary"
                 >
