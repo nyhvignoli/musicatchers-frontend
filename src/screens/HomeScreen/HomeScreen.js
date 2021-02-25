@@ -16,7 +16,10 @@ const HomeScreen = () => {
         <Logo src={musiCatchersLogo} alt={'Logo da MusiCatchers: Ondas sonoras em tons de roxo e azul'}/>
       </LogoContainer>
       <LoginContainer>
-        <BaseForm/>
+        <BaseForm
+          fields={['E-mail', 'Senha']}
+          buttonText={'Entrar'}
+        />
         <Button 
           color="secondary"
           onClick={() => {goToSignup(history)}}

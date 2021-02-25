@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { backgroundGradient } from '../../constants/colors';
 
 export const MainContainer = styled.div`
     display: flex;
@@ -24,12 +25,7 @@ export const LoginContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(
-        rgba(0, 0, 0, 1), 
-        rgba(26, 20, 71, 1), 
-        rgba(88, 11, 154, 0.8633), 
-        rgba(201, 71, 255, 1)
-    );
+    background-image: linear-gradient(${backgroundGradient});
     width: 50%;
 `;
 

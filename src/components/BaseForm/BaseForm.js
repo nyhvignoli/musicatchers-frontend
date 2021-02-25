@@ -10,16 +10,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const BaseForm = () => {
+const BaseForm = (props) => {
   const classes = useStyles();
 
   return (
     <div>
       <FormContainer className={classes.root} noValidate autoComplete="off">
-        <StyledTextField id="filled-basic" label="E-mail" variant="filled" color="secondary" fullWidth />
-        <StyledTextField id="filled-basic" label="Senha" variant="filled" color="secondary" fullWidth/>
-        <StyledButton variant="outlined" color="secondary">
-          Entrar
+        {props.fields && props.fields.map((field) => {
+          return (
+            <StyledTextField id="filled-basic" label={field} variant="filled" color="secondary" fullWidth />
+          );
+        })}
+        
+        <StyledButton 
+          variant="outlined" 
+          color="secondary"
+        >
+          {props.buttonText}
         </StyledButton>
       </FormContainer>
     </div>
