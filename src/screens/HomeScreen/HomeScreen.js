@@ -1,10 +1,15 @@
 import React from 'react';
-import { MainContainer, LogoContainer, Logo, LoginContainer, ButtonContainer } from './styles';
+import { MainContainer, LogoContainer, Logo, LoginContainer } from './styles';
 import Button from '@material-ui/core/Button';
 import musiCatchersLogo from '../../assets/musicatchers-logo.png'
 import BaseForm from '../../components/BaseForm/BaseForm';
+import { useHistory } from 'react-router-dom';
+import { goToSignup } from '../../router/coordinator';
 
 const HomeScreen = () => {
+
+  const history = useHistory();
+
   return (
     <MainContainer>
       <LogoContainer>
@@ -12,7 +17,10 @@ const HomeScreen = () => {
       </LogoContainer>
       <LoginContainer>
         <BaseForm/>
-        <Button color="secondary">
+        <Button 
+          color="secondary"
+          onClick={() => {goToSignup(history)}}
+        >
           Cadastre-se
         </Button>
       </LoginContainer>
