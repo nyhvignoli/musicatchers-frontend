@@ -7,7 +7,7 @@ const MusicDetailsScreen = () => {
 
   return (
     <div>
-        Página de detalhes da música escolhida
+      Página de detalhes da música escolhida
     </div>
   );
 };
