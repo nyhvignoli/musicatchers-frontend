@@ -16,8 +16,8 @@ const BaseForm = () => {
   return (
     <div>
       <FormContainer className={classes.root} noValidate autoComplete="off">
-        <StyledTextField id="filled-basic" label="E-mail" variant="filled" fullWidth />
-        <StyledTextField id="filled-basic" label="Senha" variant="filled" fullWidth/>
+        <StyledTextField id="filled-basic" label="E-mail" variant="filled" color="secondary" fullWidth />
+        <StyledTextField id="filled-basic" label="Senha" variant="filled" color="secondary" fullWidth/>
         <StyledButton variant="outlined" color="secondary">
           Entrar
         </StyledButton>
