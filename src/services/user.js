@@ -8,7 +8,7 @@ export const signup = (body, history) => {
         window.localStorage.setItem('token', res.data.token);
         goToMusicFeed(history);
     }).catch(error => {
-        console.log(error.message);
+        console.log(error.response.data);
     });
 };
 
@@ -18,6 +18,6 @@ export const login = (body, history) => {
         window.localStorage.setItem('token', res.data.token);
         goToMusicFeed(history);
     }).catch(error => {
-        console.log(error.message);
+        console.log(error.response.data);
     });
 };
