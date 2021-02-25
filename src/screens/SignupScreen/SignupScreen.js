@@ -10,9 +10,7 @@ const SignupScreen = () => {
     <MainContainer>
       <NavBar />
       <FormContainer>
-        <SignupForm 
-          buttonText={'Cadastrar'}
-        />
+        <SignupForm/>
       </FormContainer>
     </MainContainer>
   );
