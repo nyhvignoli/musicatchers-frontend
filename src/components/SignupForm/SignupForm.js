@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { FormContainer, StyledTextField, StyledButton } from './styles';
 import { useForm } from '../../hooks/useForm';
+import { signup } from '../../services/user';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -11,8 +13,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignupForm = (props) => {
+const SignupForm = () => {
     const classes = useStyles();
+    const history = useHistory();
     const { form, onChange } = useForm({
         name: '',
         nickname: '',
@@ -20,10 +23,20 @@ const SignupForm = (props) => {
         password: ''
     });
 
+    const onSubmitForm = (event) => {
+        event.preventDefault();
+        signup(form, history);
+    };
+
     return (
         <div>
-            <FormContainer className={classes.root} noValidate autoComplete="off">
+            <FormContainer 
+                className={classes.root}  
+                autoComplete="off"
+                onSubmit={onSubmitForm}
+            >
                 <StyledTextField 
+                    required
                     label='Nome' 
                     type='text'
                     name='name'
@@ -34,16 +47,18 @@ const SignupForm = (props) => {
                     fullWidth
                 />
                 <StyledTextField 
+                    required
                     label='Nickname' 
                     type='text'
                     name='nickname'
-                    variant="filled" 
-                    color="secondary"
+                    variant='filled' 
+                    color='secondary'
                     value={form.nickname} 
                     onChange={onChange}
                     fullWidth
                 />
                 <StyledTextField 
+                    required
                     label='E-mail' 
                     type='email'
                     name='email'
@@ -54,6 +69,7 @@ const SignupForm = (props) => {
                     fullWidth
                 />
                 <StyledTextField 
+                    required
                     label='Senha' 
                     type='password'
                     name='password'
@@ -66,8 +82,9 @@ const SignupForm = (props) => {
                 <StyledButton 
                     variant="outlined" 
                     color="secondary"
+                    type="submit"
                 >
-                    {props.buttonText}
+                    Cadastrar
                 </StyledButton>
             </FormContainer>
         </div>
