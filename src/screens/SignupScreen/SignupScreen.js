@@ -2,15 +2,15 @@ import React from 'react';
 import { MainContainer } from '../../global/styles';
 import NavBar from '../../components/NavBar/NavBar';
 import { FormContainer } from './styles';
-import BaseForm from '../../components/BaseForm/BaseForm';
+import SignupForm from '../../components/SignupForm/SignupForm';
 
 const SignupScreen = () => {
+
   return (
     <MainContainer>
       <NavBar />
       <FormContainer>
-        <BaseForm 
-          fields={['Nome', 'Nickname', 'E-mail', 'Senha']}
+        <SignupForm 
           buttonText={'Cadastrar'}
         />
       </FormContainer>

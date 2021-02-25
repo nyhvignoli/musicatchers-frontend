@@ -2,7 +2,7 @@ import React from 'react';
 import { MainContainer, LogoContainer, Logo, LoginContainer } from './styles';
 import Button from '@material-ui/core/Button';
 import musiCatchersLogo from '../../assets/musicatchers-logo.png'
-import BaseForm from '../../components/BaseForm/BaseForm';
+import LoginForm from '../../components/LoginForm/LoginForm';
 import { useHistory } from 'react-router-dom';
 import { goToSignup } from '../../router/coordinator';
 
@@ -16,10 +16,7 @@ const HomeScreen = () => {
         <Logo src={musiCatchersLogo} alt={'Logo da MusiCatchers: Ondas sonoras em tons de roxo e azul'}/>
       </LogoContainer>
       <LoginContainer>
-        <BaseForm
-          fields={['E-mail', 'Senha']}
-          buttonText={'Entrar'}
-        />
+        <LoginForm/>
         <Button 
           color="secondary"
           onClick={() => {goToSignup(history)}}
