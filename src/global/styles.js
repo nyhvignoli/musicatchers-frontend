@@ -11,3 +11,11 @@ export const MainContainer = styled.div`
     height: 100vh;
     background-image: linear-gradient(${backgroundGradient});
 `;
+
+
+export const FlexBox = styled.div`
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
