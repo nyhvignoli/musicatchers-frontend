@@ -25,7 +25,13 @@ const SignupForm = () => {
 
     const onSubmitForm = (event) => {
         event.preventDefault();
-        signup(form, history);
+        const invalidPassword = form.password.length < 6;
+
+        if (invalidPassword) {
+            window.alert('A senha deve conter no mínimo 6 caracteres');
+        } else {
+            signup(form, history);
+        };
     };
 
     return (
