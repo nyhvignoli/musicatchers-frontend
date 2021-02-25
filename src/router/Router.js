@@ -12,7 +12,7 @@ const Router = () => {
         <BrowserRouter>
             <Switch>
                 <Route
-                    exact path={['/', 'login']}
+                    exact path={['/', '/login']}
                     component={HomeScreen}
                 />
                 <Route 
