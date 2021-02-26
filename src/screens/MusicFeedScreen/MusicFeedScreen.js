@@ -1,6 +1,7 @@
 import React from 'react';
-import { MainContainer } from '../../global/styles';
+import { MainContainer, FlexBox } from '../../global/styles';
 import NavBar from '../../components/NavBar/NavBar';
+import MusicCard from '../../components/MusicCard/MusicCard';
 import useRedirectUser from '../../hooks/useRedirectUser';
 
 const MusicFeedScreen = () => {
@@ -12,7 +13,20 @@ const MusicFeedScreen = () => {
       <NavBar
         buttonText={'Sair'}
       />
-      Página com todas as músicas
+      <FlexBox
+        column
+      >
+        <MusicCard />
+        <MusicCard />
+        <MusicCard />
+        <MusicCard />
+        <MusicCard />
+        <MusicCard />
+        <MusicCard />
+        <MusicCard />
+        <MusicCard />
+        <MusicCard />
+      </FlexBox>
     </MainContainer>
   );
 };

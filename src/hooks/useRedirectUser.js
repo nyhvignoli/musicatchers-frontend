@@ -7,7 +7,7 @@ const useRedirectUser = () => {
 
     useEffect(() => {
         const token = window.localStorage.getItem('token');
-        token ? goToMusicFeed(history) : goToLogin(history);
+        !token && goToLogin(history);
     },[history]);
 };
 
