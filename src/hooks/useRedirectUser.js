@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { goToLogin } from '../router/coordinator';
+import { goToMusicFeed, goToLogin } from '../router/coordinator';
 
 const useRedirectUser = () => {
     const history = useHistory();
 
     useEffect(() => {
         const token = window.localStorage.getItem('token');
-        !token && goToLogin(history);
+        token ? goToMusicFeed(history) : goToLogin(history);
     },[history]);
 };
 

@@ -9,22 +9,24 @@ const NavBar = (props) => {
   const history = useHistory();
   const token = localStorage.getItem("token");
 
-  const handleLoginOrLogoutClick = () => {
+  const handleClick = () => {
     if (token) {
       localStorage.removeItem("token");
       goToLogin(history);
-    };
+    } else {
+      goToLogin(history);
+    }
   };
 
   return (
     <AppBar>
       <Toolbar>
-        <Button color="inherit">
-          Entrar
+        <Button 
+          color="inherit"
+          onClick={handleClick}
+        >
+          {props.buttonText}
         </Button>
-        {/* <Button color="inherit" onClick={handleLoginOrLogoutClick}>
-          Sair
-        </Button> */}
       </Toolbar>
     </AppBar>
   );
