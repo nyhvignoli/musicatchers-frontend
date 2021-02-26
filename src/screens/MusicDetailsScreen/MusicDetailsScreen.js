@@ -1,5 +1,6 @@
 import React from 'react';
 import useRedirectUser from '../../hooks/useRedirectUser';
+import { useParams } from 'react-router-dom';
 
 const MusicDetailsScreen = () => {
 

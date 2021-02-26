@@ -7,6 +7,7 @@ import NavDrawer from '../../components/NavDrawer/NavDrawer';
 import { useHistory } from 'react-router-dom';
 import { useRequestData } from '../../hooks/useRequestData';
 import { BASE_URL } from '../../constants/requestConfig';
+import { goToMusicDetails } from '../../router/coordinator';
 
 const MusicFeedScreen = () => {
 
