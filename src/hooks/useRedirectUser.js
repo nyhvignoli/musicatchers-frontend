@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { goToLogin } from '../router/coordinator';
+import { goToMusicFeed, goToLogin } from '../router/coordinator';
 
 const useRedirectUser = () => {
     const history = useHistory();

@@ -5,19 +5,22 @@ import { goToMusicFeed } from '../router/coordinator';
 export const signup = (body, history) => {
     axios.post(`${BASE_URL}/user/signup`, body)
     .then(res => {
-        window.localStorage.setItem('token', res.data.token);
-        goToMusicFeed(history);
+        allowAccess(res.data.token, history);
     }).catch(error => {
-        console.log(error.response.data);
+        console.log(error.message || error.response.data);
     });
 };
 
 export const login = (body, history) => {
     axios.post(`${BASE_URL}/user/login`, body)
     .then(res => {
-        window.localStorage.setItem('token', res.data.token);
-        goToMusicFeed(history);
+        allowAccess(res.data.token, history);
     }).catch(error => {
-        console.log(error.response.data);
+        console.log(error.message || error.response.data);
     });
+};
+
+const allowAccess = (token, history) => {
+    window.localStorage.setItem('token', token);
+    goToMusicFeed(history);
 };

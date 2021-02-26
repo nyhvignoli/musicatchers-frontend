@@ -35,7 +35,7 @@ const CreateMusicForm = () => {
             title: form.title,
             author: form.author,
             file: form.file,
-            genre: genres,
+            genres,
             album: form.album
         };
 

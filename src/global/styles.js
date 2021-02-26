@@ -8,14 +8,16 @@ export const AppContainer = styled.div`
 `;
 
 export const MainContainer = styled.div`
-    height: 100vh;
+    min-height: 100vh;
     background-image: linear-gradient(${backgroundGradient});
 `;
 
 
 export const FlexBox = styled.div`
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
+    flex-direction: ${props => props.column ? "column" : "row"};
     align-items: center;
     justify-content: center;
+    gap: 20px;
 `;
