@@ -5,6 +5,7 @@ import { useForm } from '../../hooks/useForm';
 import { useHistory } from 'react-router-dom';
 import GenreToggleGroup from '../GenreToggleGroup/GenreToggleGroup';
 import { createMusic } from '../../services/music';
+import { useRequestData } from '../../hooks/useRequestData';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 const CreateMusicForm = () => {
     const classes = useStyles();
     const history = useHistory();
+    const { data, getData } = useRequestData();
     const { form, onChange } = useForm({
         title: '',
         author: '',
@@ -39,7 +41,7 @@ const CreateMusicForm = () => {
             album: form.album
         };
 
-        createMusic(body, history);
+        createMusic(body, history, getData);
     };
 
     return (

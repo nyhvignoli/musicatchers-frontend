@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const MusicCard = () => {
+const MusicCard = (props) => {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -44,10 +44,10 @@ const MusicCard = () => {
             <div className={classes.details}>
                 <CardContent className={classes.content}>
                     <Typography component="h5" variant="h5">
-                      Live From Space
+                        {props.music.title}
                     </Typography>
                     <Typography variant="subtitle1" color="textSecondary">
-                      Mac Miller
+                        {props.music.author}
                     </Typography>
                 </CardContent>
                 <div className={classes.controls}>
