@@ -77,9 +77,9 @@ const MusicCard = (props) => {
                 </div>
             </div>
             <CardMedia
-                className={classes.cover}
-                image="https://picsum.photos/id/237/200/300g"
-                title="Live from space album cover"
+              className={classes.cover}
+              image=""
+              title="Live from space album cover"
             />
         </Card>
   );

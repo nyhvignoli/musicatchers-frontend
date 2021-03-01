@@ -9,7 +9,11 @@ export const useRequestData = (url, headers, initialState) => {
         .then(res => {
             setData(res.data);
         }).catch(error => {
-            console.log(error.message || error.response.data);
+            console.log(
+                error.response && 
+                error.response.data || 
+                error.message
+            );
         });
     };
 
