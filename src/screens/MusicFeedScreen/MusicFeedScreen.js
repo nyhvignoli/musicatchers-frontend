@@ -7,6 +7,7 @@ import NavDrawer from '../../components/NavDrawer/NavDrawer';
 import { useHistory } from 'react-router-dom';
 import { useRequestData } from '../../hooks/useRequestData';
 import { BASE_URL } from '../../constants/requestConfig';
+import { CircularProgress } from '@material-ui/core';
 import { ContentContainer } from './styles';
 
 const MusicFeedScreen = () => {
