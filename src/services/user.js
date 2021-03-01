@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { BASE_URL } from '../constants/requestConfig';
-import { goToMusicFeed } from '../router/coordinator';
+import { goToMusicFeed, goToLogin } from '../router/coordinator';
 
 export const signup = (body, history) => {
     axios.post(`${BASE_URL}/user/signup`, body)
@@ -23,4 +23,11 @@ export const login = (body, history) => {
 const allowAccess = (token, history) => {
     window.localStorage.setItem('token', token);
     goToMusicFeed(history);
+};
+
+export const logout = (token, history) => {
+    if (token) {
+      localStorage.removeItem("token");
+      goToLogin(history);
+    };
 };

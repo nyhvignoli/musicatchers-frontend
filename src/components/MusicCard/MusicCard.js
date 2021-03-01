@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from 'react-router-dom';
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -8,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
+import { goToMusicDetails } from '../../router/coordinator';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
 const MusicCard = (props) => {
   const classes = useStyles();
   const theme = useTheme();
+  const history = useHistory();
 
   return (
         <Card className={classes.root}>
@@ -51,29 +54,32 @@ const MusicCard = (props) => {
                     </Typography>
                 </CardContent>
                 <div className={classes.controls}>
-                    <IconButton aria-label="previous">
+                    {/* <IconButton aria-label="previous">
                         {theme.direction === "rtl" ? (
                             <SkipNextIcon />
                         ) : (
                             <SkipPreviousIcon />
                         )}
-                    </IconButton>
-                    <IconButton aria-label="play/pause">
+                    </IconButton> */}
+                    <IconButton 
+                        aria-label="play/pause"
+                        onClick={() => goToMusicDetails(history, props.music.id)}
+                    >
                         <PlayArrowIcon className={classes.playIcon} />
                     </IconButton>
-                    <IconButton aria-label="next">
+                    {/* <IconButton aria-label="next">
                         {theme.direction === "rtl" ? (
                             <SkipPreviousIcon />
                         ) : (
                             <SkipNextIcon />
                         )}
-                    </IconButton>
+                    </IconButton> */}
                 </div>
             </div>
             <CardMedia
-                className={classes.cover}
-                image="https://picsum.photos/id/237/200/300g"
-                title="Live from space album cover"
+              className={classes.cover}
+              image=""
+              title="Live from space album cover"
             />
         </Card>
   );

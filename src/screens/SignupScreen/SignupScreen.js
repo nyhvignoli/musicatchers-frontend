@@ -9,6 +9,7 @@ const SignupScreen = () => {
   return (
     <MainContainer>
       <NavBar
+        action={'login'}
         buttonText={'Entrar'} 
       />
       <FlexBox>

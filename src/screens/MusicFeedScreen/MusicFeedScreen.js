@@ -22,6 +22,7 @@ const MusicFeedScreen = () => {
   return (
     <MainContainer>
       <NavBar
+        action={'logout'}
         buttonText={'Sair'}
       />
       <NavDrawer
