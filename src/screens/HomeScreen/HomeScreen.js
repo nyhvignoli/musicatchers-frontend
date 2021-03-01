@@ -5,7 +5,7 @@ import musiCatchersLogo from '../../assets/musicatchers-logo.png'
 import LoginForm from '../../components/LoginForm/LoginForm';
 import { useHistory } from 'react-router-dom';
 import { goToSignup } from '../../router/coordinator';
-import useRedirectUser from '../../hooks/useRedirectUser';
+import { useRedirectUser } from '../../hooks/useRedirectUser';
 
 const HomeScreen = () => {
 

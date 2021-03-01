@@ -8,12 +8,15 @@ export const AppContainer = styled.div`
 `;
 
 export const MainContainer = styled.div`
+    padding: 20px;
+    margin-top: ${props => props.marginTop ? '64px' : '0px'};
     min-height: 100vh;
     background-image: linear-gradient(${backgroundGradient});
 `;
 
 
 export const FlexBox = styled.div`
+    flex-grow: 1;
     min-height: 100vh;
     display: flex;
     flex-direction: ${props => props.column ? "column" : "row"};
