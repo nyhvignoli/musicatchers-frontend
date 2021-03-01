@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { goToMusicFeed, goToLogin } from '../router/coordinator';
 
-const useRedirectUser = () => {
+export const useProtectedPage = () => {
     const history = useHistory();
 
     useEffect(() => {
@@ -11,4 +11,11 @@ const useRedirectUser = () => {
     },[history]);
 };
 
-export default useRedirectUser;
+export const useRedirectUser = () => {
+    const history = useHistory();
+
+    useEffect(() => {
+        const token = window.localStorage.getItem('token');
+        !token && goToLogin(history);
+    },[history]);
+};

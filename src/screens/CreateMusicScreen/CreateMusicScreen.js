@@ -1,10 +1,10 @@
 import React from 'react';
-import useRedirectUser from '../../hooks/useRedirectUser';
+import { useProtectedPage } from '../../hooks/useRedirectUser';
 import { MainContainer, FlexBox } from '../../global/styles';
 import CreateMusicForm from '../../components/CreateMusicForm/CreateMusicForm';
 
 const CreateMusicScreen = () => {
-  useRedirectUser();
+  useProtectedPage();
   
   return (
     <MainContainer>

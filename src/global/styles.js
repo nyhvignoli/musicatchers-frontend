@@ -14,6 +14,7 @@ export const MainContainer = styled.div`
 
 
 export const FlexBox = styled.div`
+    flex-grow: 1;
     min-height: 100vh;
     display: flex;
     flex-direction: ${props => props.column ? "column" : "row"};
