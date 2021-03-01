@@ -1,87 +1,47 @@
 import React from "react";
 import { useHistory } from 'react-router-dom';
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import SkipNextIcon from "@material-ui/icons/SkipNext";
 import { goToMusicDetails } from '../../router/coordinator';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex"
-  },
-  details: {
-    display: "flex",
-    flexDirection: "column"
-  },
-  content: {
-    flex: "1 0 auto"
-  },
-  cover: {
-    width: 151
-  },
-  controls: {
-    display: "flex",
-    alignItems: "center",
-    paddingLeft: theme.spacing(1),
-    paddingBottom: theme.spacing(1)
-  },
-  playIcon: {
-    height: 38,
-    width: 38
-  }
-}));
+import { StyledCard, StyledCardContent, Audio } from './styles';
+import { dateToString } from '../../services/dateManager';
 
 const MusicCard = (props) => {
-  const classes = useStyles();
-  const theme = useTheme();
   const history = useHistory();
 
+  const details = (
+    <div>
+      <Typography variant="subtitle1" color="textSecondary">
+        Álbum: {props.music.album}
+      </Typography>
+      <Typography variant="b" color="textSecondary">
+        {dateToString(props.music.date)}
+      </Typography>
+    </div>
+  );
+
   return (
-        <Card className={classes.root}>
-            <div className={classes.details}>
-                <CardContent className={classes.content}>
-                    <Typography component="h5" variant="h5">
-                        {props.music.title}
-                    </Typography>
-                    <Typography variant="subtitle1" color="textSecondary">
-                        {props.music.author}
-                    </Typography>
-                </CardContent>
-                <div className={classes.controls}>
-                    {/* <IconButton aria-label="previous">
-                        {theme.direction === "rtl" ? (
-                            <SkipNextIcon />
-                        ) : (
-                            <SkipPreviousIcon />
-                        )}
-                    </IconButton> */}
-                    <IconButton 
-                        aria-label="play/pause"
-                        onClick={() => goToMusicDetails(history, props.music.id)}
-                    >
-                        <PlayArrowIcon className={classes.playIcon} />
-                    </IconButton>
-                    {/* <IconButton aria-label="next">
-                        {theme.direction === "rtl" ? (
-                            <SkipPreviousIcon />
-                        ) : (
-                            <SkipNextIcon />
-                        )}
-                    </IconButton> */}
-                </div>
-            </div>
-            <CardMedia
-              className={classes.cover}
-              image=""
-              title="Live from space album cover"
-            />
-        </Card>
+    <StyledCard>
+      <StyledCardContent
+        isClickable={props.isClickable}
+        onClick={
+          props.isClickable ? 
+          () => goToMusicDetails(history, props.music.id) : 
+          null
+        }
+      >
+        <Typography component="h6" variant="h6">
+          {props.music.title}
+        </Typography>
+        <Typography variant="subtitle1" color="textSecondary">
+          {props.music.author}
+        </Typography>
+        {!props.isClickable && details}
+      </StyledCardContent>
+      <Audio 
+        controls
+        src={props.music.file}
+      />
+    </StyledCard>
   );
 };
 
