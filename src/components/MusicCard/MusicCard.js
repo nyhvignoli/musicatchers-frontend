@@ -29,7 +29,7 @@ const MusicCard = (props) => {
           null
         }
       >
-        <Typography component="h5" variant="h5">
+        <Typography component="h6" variant="h6">
           {props.music.title}
         </Typography>
         <Typography variant="subtitle1" color="textSecondary">

@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 import CardContent from "@material-ui/core/CardContent";
 import Card from "@material-ui/core/Card";
+import { lightGradient } from '../../constants/colors';
 
 export const StyledCard = styled(Card)`
+    background-image: linear-gradient(${lightGradient});
     width: 50vw;
     min-width: 300px;
     max-width: 800px;
     display: flex;
-    padding: 10px 20px;
+    padding: 5px 20px;
     justify-content: space-between;
 `;
 

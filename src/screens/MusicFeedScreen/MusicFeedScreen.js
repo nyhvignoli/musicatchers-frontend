@@ -21,7 +21,9 @@ const MusicFeedScreen = () => {
   const { data, getData } = useRequestData(`${BASE_URL}/music`, axiosConfig, undefined);
 
   return (
-    <MainContainer>
+    <MainContainer
+      marginTop
+    >
       <NavBar
         action={'logout'}
         buttonText={'Sair'}

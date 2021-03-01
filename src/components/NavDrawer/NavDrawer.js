@@ -47,8 +47,8 @@ const NavDrawer = (props) => {
             text: 'Adicionar músicas',
             
         },{
-            id: 'outro',
-            text: 'Outra coisa',
+            id: 'create-playlist',
+            text: 'Criar playlist',
         }
     ];
 

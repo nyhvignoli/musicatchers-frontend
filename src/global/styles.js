@@ -8,6 +8,8 @@ export const AppContainer = styled.div`
 `;
 
 export const MainContainer = styled.div`
+    padding: 20px;
+    margin-top: ${props => props.marginTop ? '64px' : '0px'};
     min-height: 100vh;
     background-image: linear-gradient(${backgroundGradient});
 `;

@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import Paper from '@material-ui/core/Paper';
 import TagFacesIcon from '@material-ui/icons/TagFaces';
-import { ChipGroupContainer } from './styles';
+import { ChipGroupContainer, StyledChip } from './styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,7 +27,7 @@ const GenreChipGroup = (props) => {
       {props.genres.map((genre) => {
         return (
           <li key={genre.id}>
-            <Chip
+            <StyledChip
                 label={genre.name}
                 className={classes.chip}
             />
