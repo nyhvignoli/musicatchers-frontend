@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import{ BASE_URL, axiosConfig } from '../../constants/requestConfig';
 import { MainContainer, FlexBox } from '../../global/styles';
 import NavBar from '../../components/NavBar/NavBar';
+import { dateToString } from '../../services/dateManager';
 
 const MusicDetailsScreen = () => {
 
@@ -26,7 +27,7 @@ const MusicDetailsScreen = () => {
           <h3>{data.title}</h3>
           <p>Artista: {data.author}</p>
           <p>Álbum: {data.album}</p>
-          <p>Data de criação: {data.date}</p>
+          <p>Data de criação: {dateToString(data.date)}</p>
           {data.genres.map((genre) => {
             return (
               <p>{genre.name}</p>
