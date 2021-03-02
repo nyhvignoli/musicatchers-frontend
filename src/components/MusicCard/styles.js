@@ -15,7 +15,7 @@ export const StyledCard = styled(Card)`
 
 export const StyledCardContent = styled(CardContent)`
     &:hover {
-        cursor: ${props => props.isClickable && 'pointer'};
+        cursor: ${props => props.clickable && 'pointer'};
     };
 `;
 

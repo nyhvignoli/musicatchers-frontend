@@ -7,7 +7,7 @@ import NavDrawer from '../../components/NavDrawer/NavDrawer';
 import { useHistory } from 'react-router-dom';
 import { useRequestData } from '../../hooks/useRequestData';
 import { BASE_URL } from '../../constants/requestConfig';
-import { CircularProgress } from '@material-ui/core';
+import Progress from '../../components/Feedback/CircularProgress';
 import { ContentContainer } from './styles';
 
 const MusicFeedScreen = () => {
@@ -36,15 +36,15 @@ const MusicFeedScreen = () => {
         <FlexBox
           column
         >
-          {data && data.map((music) => {
+          {data ? data.map((music) => {
             return (
               <MusicCard
                 key={music.id}
-                isClickable
+                clickable
                 music={music} 
               />
             )
-          })}
+          }): <Progress/>}
         </FlexBox>
       </ContentContainer>
     </MainContainer>
