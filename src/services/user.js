@@ -1,13 +1,17 @@
 import axios from 'axios';
 import { BASE_URL } from '../constants/requestConfig';
 import { goToMusicFeed, goToLogin } from '../router/coordinator';
+import { loginError, signupError } from './errorHandler';
 
 export const signup = (body, history) => {
     axios.post(`${BASE_URL}/user/signup`, body)
     .then(res => {
         allowAccess(res.data.token, history);
     }).catch(error => {
-        console.log(error.message || error.response.data);
+        const errorMessage = error.response && error.response.data || error.message
+        console.log(errorMessage);
+        const finalMessage = signupError(errorMessage);
+        finalMessage && window.alert(finalMessage);
     });
 };
 
@@ -16,7 +20,10 @@ export const login = (body, history) => {
     .then(res => {
         allowAccess(res.data.token, history);
     }).catch(error => {
-        console.log(error.message || error.response.data);
+        const errorMessage = error.response && error.response.data || error.message
+        console.log(errorMessage);
+        const finalMessage = loginError(errorMessage);
+        finalMessage && window.alert(finalMessage);
     });
 };
 

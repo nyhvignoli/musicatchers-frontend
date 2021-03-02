@@ -16,6 +16,6 @@ export const useRedirectUser = () => {
 
     useEffect(() => {
         const token = window.localStorage.getItem('token');
-        !token && goToLogin(history);
+        token && goToMusicFeed(history);
     },[history]);
 };
