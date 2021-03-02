@@ -4,6 +4,7 @@ import { FormContainer, StyledTextField, StyledButton } from './styles';
 import { useForm } from '../../hooks/useForm';
 import { signup } from '../../services/user';
 import { useHistory } from 'react-router-dom';
+import { checkPassword } from '../../services/validator';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,13 +26,8 @@ const SignupForm = () => {
 
     const onSubmitForm = (event) => {
         event.preventDefault();
-        const invalidPassword = form.password.length < 6;
-
-        if (invalidPassword) {
-            window.alert('A senha deve conter no mínimo 6 caracteres');
-        } else {
-            signup(form, history);
-        };
+        checkPassword(form.password);
+        signup(form, history);
     };
 
     return (

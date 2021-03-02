@@ -4,6 +4,7 @@ import { FormContainer, StyledTextField, StyledButton } from '../BaseForm/styles
 import { useForm } from '../../hooks/useForm';
 import { login } from '../../services/user';
 import { useHistory } from 'react-router-dom';
+import { checkPassword } from '../../services/validator';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,6 +24,7 @@ const LoginForm = () => {
 
     const onSubmitForm = (event) => {
         event.preventDefault();
+        checkPassword(form.password);
         login(form, history);
     };
 

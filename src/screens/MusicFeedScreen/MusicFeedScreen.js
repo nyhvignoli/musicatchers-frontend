@@ -39,6 +39,7 @@ const MusicFeedScreen = () => {
           {data && data.map((music) => {
             return (
               <MusicCard
+                key={music.id}
                 isClickable
                 music={music} 
               />
