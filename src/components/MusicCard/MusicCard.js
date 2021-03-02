@@ -22,9 +22,9 @@ const MusicCard = (props) => {
   return (
     <StyledCard>
       <StyledCardContent
-        isClickable={props.isClickable}
+        clickable={props.clickable}
         onClick={
-          props.isClickable ? 
+          props.clickable ? 
           () => goToMusicDetails(history, props.music.id) : 
           null
         }
@@ -35,7 +35,7 @@ const MusicCard = (props) => {
         <Typography variant="subtitle1" color="textSecondary">
           {props.music.author}
         </Typography>
-        {!props.isClickable && details}
+        {!props.clickable && details}
       </StyledCardContent>
       <Audio 
         controls

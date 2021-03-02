@@ -1,10 +1,10 @@
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const CircularProgress = () => {
+const Progress = () => {
 
   return (
     <CircularProgress color="secondary" />
   );
 };
 
-export default CircularProgress;
+export default Progress;
