@@ -11,13 +11,21 @@ import {
     StyledDialogActions,
     StyledButton 
 } from './styles';
+import { useHistory } from 'react-router-dom';
+import { createPlaylist } from '../../services/playlist';
 
 const FormDialog = (props) => {
-    const { form, onChange } = useForm({name: "", description:""})
+    const history = useHistory();
+    const { form, onChange } = useForm({name: "", description:""});
 
     const onSubmitForm = (event) => {
-        event.preventDefault()
-        console.log('criou playlist')
+        event.preventDefault();
+        const body = {
+            name: form.name,
+            description: form.description
+        };
+
+        createPlaylist(body, history);
         props.handleClose();
     };
 
