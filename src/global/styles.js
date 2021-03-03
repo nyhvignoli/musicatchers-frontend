@@ -24,3 +24,11 @@ export const FlexBox = styled.div`
     justify-content: center;
     gap: 20px;
 `;
+
+export const FlexForm = styled.form`
+    display: flex;
+    flex-direction: ${props => props.row ? "row" : "column"};
+    width: 85vw;
+    max-width: ${props => props.medium ? "360px" : "100%"};
+    gap: 20px;
+`

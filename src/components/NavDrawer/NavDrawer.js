@@ -39,29 +39,29 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NavDrawer = (props) => {
-    const classes = useStyles();
+  const classes = useStyles();
 
-    const menuItens = [
-        { 
-            id: 'add-musica',
-            text: 'Adicionar músicas',
-            
-        },{
-            id: 'create-playlist',
-            text: 'Criar playlist',
-        }
-    ];
+  const menuItens = [
+      { 
+          id: 'add-musica',
+          text: 'Adicionar músicas',
+          
+      },{
+          id: 'create-playlist',
+          text: 'Criar playlist',
+      }
+  ];
 
-    const handleClick = (item, history) => {
-        switch (item.id) {
-            case 'add-musica':
-                goToCreateMusic(history)
-            break;
-            case 'outro':
-                window.alert(`clicou no ${item.text}`)
-            break;
-        };
-    };
+  const handleMenu = (item, history) => {
+      switch (item.id) {
+        case 'add-musica':
+          goToCreateMusic(history);
+        break;
+        case 'create-playlist':
+          props.handleClickOpen();
+        break;
+      };
+  };
 
   return (
     <div className={classes.root}>
@@ -85,7 +85,7 @@ const NavDrawer = (props) => {
                 <ListItem 
                     button 
                     key={item.id}
-                    onClick={() => handleClick(item, props.history)}
+                    onClick={() => handleMenu(item, props.history)}
                 >
                 <ListItemIcon>{index % 2 === 0 ? <LibraryMusicIcon /> : <MailIcon />}</ListItemIcon>
                 <ListItemText primary={item.text} />
