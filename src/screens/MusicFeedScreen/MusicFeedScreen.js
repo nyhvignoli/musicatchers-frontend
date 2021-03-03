@@ -40,7 +40,7 @@ const MusicFeedScreen = () => {
             return (
               <MusicCard
                 key={music.id}
-                clickable={'true'}
+                clickable="true"
                 music={music} 
               />
             )
