@@ -25,7 +25,8 @@ const MusicDetailsScreen = () => {
         <FlexBox
           column
         >
-          <MusicCard 
+          <MusicCard
+            clickable={'false'} 
             music={data}
           />          
           <GenreChipGroup 

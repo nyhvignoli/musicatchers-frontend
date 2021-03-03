@@ -19,7 +19,7 @@ const MusicFeedScreen = () => {
       authorization: window.localStorage.getItem('token')
     }
   };
-  const { data, getData } = useRequestData(`${BASE_URL}/music`, axiosConfig, undefined);
+  const { data } = useRequestData(`${BASE_URL}/music`, axiosConfig, undefined);
 
   return (
     <MainContainer
@@ -40,7 +40,7 @@ const MusicFeedScreen = () => {
             return (
               <MusicCard
                 key={music.id}
-                clickable
+                clickable={'true'}
                 music={music} 
               />
             )
