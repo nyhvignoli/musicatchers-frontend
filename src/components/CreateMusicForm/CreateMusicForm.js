@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { FormContainer, StyledTextField, StyledButton } from '../BaseForm/styles';
 import { useForm } from '../../hooks/useForm';
@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import GenreToggleGroup from '../GenreToggleGroup/GenreToggleGroup';
 import { createMusic } from '../../services/music';
 import { useRequestData } from '../../hooks/useRequestData';
+import { BASE_URL } from '../../constants/requestConfig';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,17 +19,23 @@ const useStyles = makeStyles((theme) => ({
 const CreateMusicForm = () => {
     const classes = useStyles();
     const history = useHistory();
-    const { data, getData } = useRequestData();
+    const { data, getData } = useRequestData(`${BASE_URL}/music/genres`, undefined, undefined);
     const { form, onChange } = useForm({
         title: '',
         author: '',
         file: '',
         album: ''
     });
+
     const [genres, setGenres] = useState([]);
+    const [selectedGenres, setSelectedGenres] = useState([]);
+
+    useEffect(() => {
+        setGenres(data)
+    }, [data]);
 
     const handleToggleChange = (event, genres) => {
-        setGenres(genres);
+        setSelectedGenres(genres)
     };
 
     const onSubmitForm = (event) => {
@@ -37,11 +44,11 @@ const CreateMusicForm = () => {
             title: form.title,
             author: form.author,
             file: form.file,
-            genres,
+            genres: selectedGenres,
             album: form.album
         };
 
-        createMusic(body, history, getData);
+        createMusic(body, history);
     };
 
     return (
@@ -96,9 +103,11 @@ const CreateMusicForm = () => {
                     fullWidth
                 /> 
                 <GenreToggleGroup
-                    value={genres}
+                    genres={genres}
+                    value={selectedGenres}
                     onChange={handleToggleChange}
-                />       
+                />
+                       
                 <StyledButton 
                     variant="outlined" 
                     color="secondary"
