@@ -26,7 +26,7 @@ export const StyledTextField = styled(TextField)`
 `;
 
 export const StyledDialogActions = styled(DialogActions)`
-    margin: 18px;
+    margin: 16px;
 `;
 
 export const StyledButton = styled(Button)`
