@@ -60,7 +60,7 @@ const MusicFeedScreen = () => {
                 music={music} 
               />
             )
-          }): <Progress/>}
+          }): <Progress color="secondary"/>}
         </FlexBox>
       </ContentContainer>
     </MainContainer>

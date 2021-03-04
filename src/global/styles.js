@@ -14,6 +14,14 @@ export const MainContainer = styled.div`
     background-image: linear-gradient(${backgroundGradient});
 `;
 
+export const BaseFlex = styled.div`
+    padding: 20px;
+    display: flex;
+    flex-direction: ${props => props.column ? "column" : "row"};
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+`;
 
 export const FlexBox = styled.div`
     flex-grow: 1;

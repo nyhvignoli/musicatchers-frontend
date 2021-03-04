@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -11,12 +10,18 @@ import ListItemText from '@material-ui/core/ListItemText';
 import MailIcon from '@material-ui/icons/Mail';
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 import { goToCreateMusic } from '../../router/coordinator';
+import { useRequestData } from '../../hooks/useRequestData';
+import { axiosConfig, BASE_URL } from '../../constants/requestConfig';
+import ProfileInfo from '../ProfileInfo/ProfileInfo';
+import Progress from '../../components/Feedback/CircularProgress';
+import { BaseFlex } from '../../global/styles';
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    zIndex: '0',
   },
   appBar: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -40,33 +45,32 @@ const useStyles = makeStyles((theme) => ({
 
 const NavDrawer = (props) => {
   const classes = useStyles();
+  const { data } = useRequestData(`${BASE_URL}/user/profile`, axiosConfig, undefined);
 
   const menuItens = [
-      { 
-          id: 'add-musica',
-          text: 'Adicionar músicas',
-          
-      },{
-          id: 'create-playlist',
-          text: 'Criar playlist',
-      }
+    { 
+      id: 'add-musica',
+      text: 'Adicionar músicas', 
+    },{
+      id: 'create-playlist',
+      text: 'Criar playlist',
+    }
   ];
 
   const handleMenu = (item, history) => {
-      switch (item.id) {
-        case 'add-musica':
-          goToCreateMusic(history);
-        break;
-        case 'create-playlist':
-          props.handleClickOpen();
-        break;
-      };
+    switch (item.id) {
+      case 'add-musica':
+        goToCreateMusic(history);
+      break;
+      case 'create-playlist':
+        props.handleClickOpen();
+      break;
+    };
   };
 
   return (
     <div className={classes.root}>
       <CssBaseline />
-        
       <Drawer
         className={classes.drawer}
         variant="permanent"
@@ -77,20 +81,26 @@ const NavDrawer = (props) => {
       >
         <div className={classes.toolbar} />
         <Divider />
-        <Typography variant="h6" noWrap>
-            Olá, Aline
-        </Typography>
+        <BaseFlex>
+          {data ? 
+            <ProfileInfo 
+              user={data}
+            /> : 
+            <Progress color="primary"/>
+          }
+        </BaseFlex>
+        <Divider />
         <List>
-            {menuItens.map((item, index) => (
-                <ListItem 
-                    button 
-                    key={item.id}
-                    onClick={() => handleMenu(item, props.history)}
-                >
-                <ListItemIcon>{index % 2 === 0 ? <LibraryMusicIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={item.text} />
-                </ListItem>
-            ))}
+          {menuItens.map((item, index) => (
+            <ListItem 
+              button 
+              key={item.id}
+              onClick={() => handleMenu(item, props.history)}
+            >
+              <ListItemIcon>{index % 2 === 0 ? <LibraryMusicIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemText primary={item.text} />
+            </ListItem>
+          ))}
         </List>
       </Drawer>
     </div>

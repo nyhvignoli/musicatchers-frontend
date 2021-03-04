@@ -3,8 +3,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom';
 import { goBack, goToLogin } from '../../router/coordinator';
-import { StyledToolbar } from './styles';
+import { MusicatchersHeaderLogo, StyledToolbar } from './styles';
 import { logout } from '../../services/user';
+import musicatchersHeaderLogo from '../../assets/musicatchers-header-logo.png';
 
 const NavBar = (props) => {
   const history = useHistory();
@@ -28,6 +29,7 @@ const NavBar = (props) => {
   return (
     <AppBar>
       <StyledToolbar>
+        <MusicatchersHeaderLogo src={musicatchersHeaderLogo} />
         <Button 
           color="inherit"
           onClick={handleClick}

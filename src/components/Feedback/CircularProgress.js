@@ -1,9 +1,9 @@
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const Progress = () => {
+const Progress = (props) => {
 
   return (
-    <CircularProgress color="secondary" />
+    <CircularProgress color={props.color} />
   );
 };
 
