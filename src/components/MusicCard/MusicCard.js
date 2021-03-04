@@ -1,8 +1,15 @@
 import React from "react";
 import { useHistory } from 'react-router-dom';
 import Typography from "@material-ui/core/Typography";
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { goToMusicDetails } from '../../router/coordinator';
-import { StyledCard, StyledCardContent, Audio } from './styles';
+import { 
+  StyledCard, 
+  StyledCardContent, 
+  MusicDisplayContainer,
+  Audio, 
+  StyledIconButton 
+} from './styles';
 import { dateToString } from '../../services/dateManager';
 
 const MusicCard = (props) => {
@@ -21,26 +28,31 @@ const MusicCard = (props) => {
 
   return (
     <StyledCard>
-      <StyledCardContent
-        clickable={props.clickable}
-        onClick={
-          props.clickable ? 
-          () => goToMusicDetails(history, props.music.id) : 
-          null
-        }
-      >
-        <Typography component="h6" variant="h6">
-          {props.music.title}
-        </Typography>
-        <Typography variant="subtitle1" color="textSecondary">
-          {props.music.author}
-        </Typography>
-        {!props.clickable && details}
-      </StyledCardContent>
-      <Audio 
-        controls
-        src={props.music.file}
-      />
+      <MusicDisplayContainer>
+        <StyledCardContent
+          clickable={props.clickable}
+          onClick={
+            props.clickable ? 
+            () => goToMusicDetails(history, props.music.id) : 
+            null
+          }
+        >
+          <Typography component="h6" variant="h6">
+            {props.music.title}
+          </Typography>
+          <Typography variant="subtitle1" color="textSecondary">
+            {props.music.author}
+          </Typography>
+          {!props.clickable && details}
+        </StyledCardContent>
+        <Audio 
+          controls
+          src={props.music.file}
+        />
+      </MusicDisplayContainer>
+      <StyledIconButton aria-label="settings">
+        <MoreVertIcon />
+      </StyledIconButton>
     </StyledCard>
   );
 };
