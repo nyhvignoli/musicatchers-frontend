@@ -11,9 +11,19 @@ import {
   StyledIconButton 
 } from './styles';
 import { dateToString } from '../../services/dateManager';
+import Menu from '../CustomMenu/CustomMenu';
 
 const MusicCard = (props) => {
   const history = useHistory();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const details = (
     <div>
@@ -50,9 +60,19 @@ const MusicCard = (props) => {
           src={props.music.file}
         />
       </MusicDisplayContainer>
-      <StyledIconButton aria-label="settings">
+      <StyledIconButton 
+        aria-label="music-options"
+        onClick={handleClick}
+      >
         <MoreVertIcon />
       </StyledIconButton>
+      <Menu 
+        handleClose={handleClose}
+        anchorEl={anchorEl}
+        musicId={props.music.id}
+        history={history}
+        isFeedScreen={props.clickable}
+      />
     </StyledCard>
   );
 };
