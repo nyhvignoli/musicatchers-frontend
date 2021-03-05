@@ -1,9 +1,19 @@
-import React from 'react';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import React, { useState } from 'react';
+import { Menu, MenuItem } from '@material-ui/core';
 import { goToMusicDetails } from '../../router/coordinator';
+import SelectPlaylistDialog from '../../components/SelectPlaylistDialog/SelectPlaylistDialog';
 
 const CustomMenu = (props) => {
+
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     return (
         <div>
@@ -20,9 +30,15 @@ const CustomMenu = (props) => {
                 </MenuItem>
             }    
             
-            <MenuItem onClick={props.handleClose}>Adicionar à playlist...</MenuItem>
+            <MenuItem onClick={handleClickOpen}>Adicionar à playlist...</MenuItem>
             <MenuItem onClick={props.handleClose}>Excluir</MenuItem>
             </Menu>
+            { open && 
+                <SelectPlaylistDialog 
+                    open={open}
+                    handleClose={handleClose}
+                />
+            }
         </div>
     );
 };

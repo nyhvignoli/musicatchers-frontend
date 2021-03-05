@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 const CreateMusicForm = () => {
     const classes = useStyles();
     const history = useHistory();
-    const { data, getData } = useRequestData(`${BASE_URL}/music/genres`, undefined, undefined);
+    const { data } = useRequestData(`${BASE_URL}/music/genres`, undefined, undefined);
     const { form, onChange } = useForm({
         title: '',
         author: '',
