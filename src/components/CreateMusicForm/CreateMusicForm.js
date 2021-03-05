@@ -4,7 +4,7 @@ import { FormContainer, StyledTextField, StyledButton } from '../BaseForm/styles
 import { useForm } from '../../hooks/useForm';
 import { useHistory } from 'react-router-dom';
 import GenreToggleGroup from '../GenreToggleGroup/GenreToggleGroup';
-import { createMusic } from '../../services/music';
+import { createMusic } from '../../services/entities/music';
 import { useRequestData } from '../../hooks/useRequestData';
 import { BASE_URL } from '../../constants/requestConfig';
 

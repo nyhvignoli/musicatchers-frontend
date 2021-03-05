@@ -10,8 +10,9 @@ import {
     StyledButton 
 } from './styles';
 import { useHistory } from 'react-router-dom';
-import {useRequestData} from '../../hooks/useRequestData';
+import { useRequestData } from '../../hooks/useRequestData';
 import { BASE_URL, axiosConfig } from '../../constants/requestConfig';
+import { addTrackToPlaylist } from '../../services/entities/playlist';
 
 const SelectPlaylistDialog = (props) => {
     const history = useHistory();
@@ -37,7 +38,13 @@ const SelectPlaylistDialog = (props) => {
 
     const onSubmitForm = (event) => {
         event.preventDefault();
-        console.log(`Adicionou '${props.music.title}' à playlist '${selectedPlaylist.name}'`);
+        
+        const body = {
+            musicId: props.music.id,
+            playlistId: selectedPlaylist.id
+        };
+
+        addTrackToPlaylist(body);
         props.handleClose();
     };
 

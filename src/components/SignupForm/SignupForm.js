@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { FormContainer, StyledTextField, StyledButton } from './styles';
 import { useForm } from '../../hooks/useForm';
-import { signup } from '../../services/user';
+import { signup } from '../../services/entities/user';
 import { useHistory } from 'react-router-dom';
 import { checkPassword } from '../../services/validator';
 
