@@ -1,13 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { MenuItem, Button, Select } from '@material-ui/core';
-import { useForm } from '../../hooks/useForm';
 import { 
     DialogContainer, 
     StyledDialogContent, 
-    FlexForm, 
-    StyledTextField,
+    FlexForm,
     StyledDialogActions,
     StyledButton 
 } from './styles';
@@ -18,14 +16,27 @@ import { BASE_URL, axiosConfig } from '../../constants/requestConfig';
 const SelectPlaylistDialog = (props) => {
     const history = useHistory();
     const { data, getData } = useRequestData(`${BASE_URL}/playlist`, axiosConfig, undefined);
-    const { form, onChange, setValues } = useForm({ option: '' });
+    const [option, setOption] = useState('');
+    const [playlists, setPlaylists] = useState([]);
+    const [selectedPlaylist, setSelectedPlaylist] = useState(undefined);
 
     useEffect(() => {
-        data && setValues({ option: data[0].name })
+        if (data) {
+            setOption(data[0].name);
+            setSelectedPlaylist(data[0]);
+            setPlaylists(data);
+        };
     }, [data]);
 
+    const handleChange = (event) => {
+        const playlistName = event.target.value;
+        setOption(playlistName);
+        const selectedPlaylist = playlists.find((playlist) => playlist.name === playlistName );
+        setSelectedPlaylist(selectedPlaylist);
+    };
+
     const onSubmitForm = (event) => {
-        console.log('adicionou');
+        console.log(`Adicionou ${selectedPlaylist.id}`);
         event.preventDefault();
     };
 
@@ -36,17 +47,22 @@ const SelectPlaylistDialog = (props) => {
                 <FlexForm onSubmit={onSubmitForm}>
                     <StyledDialogContent>
                         <Select
-                            name="option"
-                            labelId="select"
-                            id="select"
-                            value={form.option}
+                            name="select"
+                            labelId="playlist-select-label"
+                            id="playlist-select"
+                            value={option}
                             variant="outlined"
-                            onChange={onChange}
+                            onChange={handleChange}
                         >
                             {data && data.map((playlist) => {
                                 return (
-                                    <MenuItem value={playlist.name}>{playlist.name}</MenuItem>
-                                )
+                                    <MenuItem 
+                                        key={playlist.id}
+                                        value={playlist.name}
+                                    >
+                                        {playlist.name}
+                                    </MenuItem>
+                                );
                             })}
                         </Select>
                     </StyledDialogContent>
