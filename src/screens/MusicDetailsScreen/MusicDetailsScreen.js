@@ -7,13 +7,14 @@ import { MainContainer, FlexBox } from '../../global/styles';
 import NavBar from '../../components/NavBar/NavBar';
 import GenreChipGroup from '../../components/GenreChipGroup/GenreChipGroup';
 import MusicCard from '../../components/MusicCard/MusicCard';
+import Progress from '../../components/Feedback/CircularProgress';
 
 const MusicDetailsScreen = () => {
 
   useProtectedPage();
 
   const params = useParams();
-  const { data, getData } = useRequestData(`${BASE_URL}/music/${params.id}`, axiosConfig, undefined);
+  const { data } = useRequestData(`${BASE_URL}/music/${params.id}`, axiosConfig, undefined);
 
   return (
     <MainContainer>
@@ -32,7 +33,9 @@ const MusicDetailsScreen = () => {
             genres={data.genres}
           />
         </FlexBox> : 
-      null}
+        <FlexBox>
+          <Progress color="secondary"/>
+        </FlexBox>}
     </MainContainer>
   );
 };

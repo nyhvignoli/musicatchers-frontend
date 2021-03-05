@@ -9,6 +9,7 @@ export const createPlaylist = (body, history) => {
         window.alert(`Sua playlist '${body.name}' foi criada com sucesso!`);
         goToMusicFeed(history);
     }).catch(error => {
+        window.alert('Erro ao criar playlist :(');
         console.log(
             error.response && 
             error.response.data || 
@@ -17,12 +18,14 @@ export const createPlaylist = (body, history) => {
     });
 };
 
-export const addTrackToPlaylist = (body) => {
+export const addTrackToPlaylist = (body, update) => {
     axios.put(`${BASE_URL}/playlist/track`, body, axiosConfig)
     .then((res) => {
         console.log(res.data);
         window.alert(`Música adicionada com sucesso à playlist!`);
+        update();
     }).catch(error => {
+        window.alert('Erro ao adicionar música à playlist :(');
         console.log(
             error.response && 
             error.response.data || 
