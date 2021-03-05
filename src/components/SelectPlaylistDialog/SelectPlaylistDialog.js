@@ -36,8 +36,9 @@ const SelectPlaylistDialog = (props) => {
     };
 
     const onSubmitForm = (event) => {
-        console.log(`Adicionou ${selectedPlaylist.id}`);
         event.preventDefault();
+        console.log(`Adicionou '${props.music.title}' à playlist '${selectedPlaylist.name}'`);
+        props.handleClose();
     };
 
     return (

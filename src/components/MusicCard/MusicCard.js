@@ -11,7 +11,7 @@ import {
   StyledIconButton 
 } from './styles';
 import { dateToString } from '../../services/dateManager';
-import Menu from '../CustomMenu/CustomMenu';
+import CustomMenu from '../CustomMenu/CustomMenu';
 
 const MusicCard = (props) => {
   const history = useHistory();
@@ -66,10 +66,10 @@ const MusicCard = (props) => {
       >
         <MoreVertIcon />
       </StyledIconButton>
-      <Menu 
+      <CustomMenu 
         handleClose={handleClose}
         anchorEl={anchorEl}
-        musicId={props.music.id}
+        music={props.music}
         history={history}
         isFeedScreen={props.clickable}
       />

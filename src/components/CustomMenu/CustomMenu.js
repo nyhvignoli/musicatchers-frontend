@@ -15,6 +15,11 @@ const CustomMenu = (props) => {
         setOpen(false);
     };
 
+    const seeMusicItem = <MenuItem 
+        onClick={() => goToMusicDetails(props.history, props.music.id)}>
+        Ver música
+    </MenuItem>
+
     return (
         <div>
             <Menu
@@ -24,19 +29,15 @@ const CustomMenu = (props) => {
                 open={Boolean(props.anchorEl)}
                 onClose={props.handleClose}
             >
-            {props.isFeedScreen && 
-                <MenuItem onClick={() => goToMusicDetails(props.history, props.musicId)}>
-                    Ver música
-                </MenuItem>
-            }    
-            
-            <MenuItem onClick={handleClickOpen}>Adicionar à playlist...</MenuItem>
-            <MenuItem onClick={props.handleClose}>Excluir</MenuItem>
+                {props.isFeedScreen && seeMusicItem}    
+                <MenuItem onClick={handleClickOpen}>Adicionar à playlist...</MenuItem>
+                <MenuItem onClick={props.handleClose}>Excluir</MenuItem>
             </Menu>
             { open && 
                 <SelectPlaylistDialog 
                     open={open}
                     handleClose={handleClose}
+                    music={props.music}
                 />
             }
         </div>
