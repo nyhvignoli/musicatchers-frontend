@@ -39,11 +39,12 @@ const MusicFeedScreen = () => {
         action={'logout'}
         buttonText={'Sair'}
       />
-      { open && <FormDialog 
-        open={open}
-        upDate={getData}
-        handleClose={handleClose}
-      />}
+      { open && 
+        <FormDialog 
+          open={open}
+          upDate={getData}
+          handleClose={handleClose}
+        />}  
       <ContentContainer>
         <NavDrawer
           history={history}

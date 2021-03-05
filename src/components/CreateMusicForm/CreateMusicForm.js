@@ -4,7 +4,7 @@ import { FormContainer, StyledTextField, StyledButton } from '../BaseForm/styles
 import { useForm } from '../../hooks/useForm';
 import { useHistory } from 'react-router-dom';
 import GenreToggleGroup from '../GenreToggleGroup/GenreToggleGroup';
-import { createMusic } from '../../services/music';
+import { createMusic } from '../../services/entities/music';
 import { useRequestData } from '../../hooks/useRequestData';
 import { BASE_URL } from '../../constants/requestConfig';
 
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 const CreateMusicForm = () => {
     const classes = useStyles();
     const history = useHistory();
-    const { data, getData } = useRequestData(`${BASE_URL}/music/genres`, undefined, undefined);
+    const { data } = useRequestData(`${BASE_URL}/music/genres`, undefined, undefined);
     const { form, onChange } = useForm({
         title: '',
         author: '',

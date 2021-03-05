@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { BASE_URL, axiosConfig } from '../constants/requestConfig';
-import { goToMusicFeed } from '../router/coordinator';
+import { BASE_URL, axiosConfig } from '../../constants/requestConfig';
+import { goToMusicFeed } from '../../router/coordinator';
 
 export const createMusic = (body, history) => {
     axios.post(`${BASE_URL}/music`, body, axiosConfig)

@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom';
 import { goBack, goToLogin } from '../../router/coordinator';
 import { MusicatchersHeaderLogo, StyledToolbar } from './styles';
-import { logout } from '../../services/user';
+import { logout } from '../../services/entities/user';
 import musicatchersHeaderLogo from '../../assets/musicatchers-header-logo.png';
 
 const NavBar = (props) => {

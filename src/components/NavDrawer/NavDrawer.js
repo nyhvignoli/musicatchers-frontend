@@ -54,6 +54,9 @@ const NavDrawer = (props) => {
     },{
       id: 'create-playlist',
       text: 'Criar playlist',
+    },{
+      id: 'my-playlists',
+      text: 'Minhas playlists'
     }
   ];
 

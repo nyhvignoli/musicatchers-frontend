@@ -12,7 +12,7 @@ import {
     StyledButton 
 } from './styles';
 import { useHistory } from 'react-router-dom';
-import { createPlaylist } from '../../services/playlist';
+import { createPlaylist } from '../../services/entities/playlist';
 
 const FormDialog = (props) => {
     const history = useHistory();

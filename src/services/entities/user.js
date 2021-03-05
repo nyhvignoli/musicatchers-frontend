@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { BASE_URL } from '../constants/requestConfig';
-import { goToMusicFeed, goToLogin } from '../router/coordinator';
-import { loginError, signupError } from './errorHandler';
+import { BASE_URL } from '../../constants/requestConfig';
+import { goToMusicFeed, goToLogin } from '../../router/coordinator';
+import { loginError, signupError } from '../errorHandler';
 
 export const signup = (body, history) => {
     axios.post(`${BASE_URL}/user/signup`, body)
