@@ -18,6 +18,10 @@ export const goToMusicDetails = (history, musicId) => {
     history.push(`/music/${musicId}`)
 };
 
+export const goToPlaylist = (history) => {
+    history.push('/playlist');
+};
+
 export const goBack = (history) => {
     history.goBack();
 };

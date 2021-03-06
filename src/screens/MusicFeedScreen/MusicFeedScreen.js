@@ -10,6 +10,7 @@ import { BASE_URL } from '../../constants/requestConfig';
 import Progress from '../../components/Feedback/CircularProgress';
 import { ContentContainer } from './styles';
 import FormDialog from '../../components/FormDialog/FormDialog';
+import Error from '../../components/Error/Error';
 
 const MusicFeedScreen = () => {
 
@@ -53,6 +54,7 @@ const MusicFeedScreen = () => {
         <FlexBox
           column
         >
+          {data && data.length === 0 && <Error message="Você ainda não adicionou nenhuma música"/>}
           {data ? data.map((music) => {
             return (
               <MusicCard

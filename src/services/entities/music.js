@@ -8,6 +8,7 @@ export const createMusic = (body, history) => {
         console.log(res.data);
         goToMusicFeed(history);
     }).catch(error => {
+        window.alert('Erro ao adicionar música :(');
         console.log(error.response.data);
     });
 };

@@ -69,7 +69,7 @@ const MusicCard = (props) => {
       <CustomMenu 
         handleClose={handleClose}
         anchorEl={anchorEl}
-        music={props.music}
+        music={props.music && props.music}
         history={history}
         isFeedScreen={props.clickable}
       />

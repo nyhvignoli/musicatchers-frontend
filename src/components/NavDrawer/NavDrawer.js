@@ -7,9 +7,11 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
+import HomeIcon from '@material-ui/icons/Home';
+import MusicNoteIcon from '@material-ui/icons/MusicNote';
+import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
-import { goToCreateMusic } from '../../router/coordinator';
+import { goToCreateMusic, goToMusicFeed, goToPlaylist } from '../../router/coordinator';
 import { useRequestData } from '../../hooks/useRequestData';
 import { axiosConfig, BASE_URL } from '../../constants/requestConfig';
 import ProfileInfo from '../ProfileInfo/ProfileInfo';
@@ -49,24 +51,38 @@ const NavDrawer = (props) => {
 
   const menuItens = [
     { 
+      id: 'home',
+      text: 'Início', 
+      icon: <HomeIcon/>
+    },
+    { 
       id: 'add-musica',
       text: 'Adicionar músicas', 
+      icon: <MusicNoteIcon/>
     },{
       id: 'create-playlist',
       text: 'Criar playlist',
+      icon: <PlaylistAddIcon/>
     },{
       id: 'my-playlists',
-      text: 'Minhas playlists'
+      text: 'Minhas playlists',
+      icon: <LibraryMusicIcon/>
     }
   ];
 
   const handleMenu = (item, history) => {
     switch (item.id) {
+      case 'home':
+        goToMusicFeed(history);
+      break;
       case 'add-musica':
         goToCreateMusic(history);
       break;
       case 'create-playlist':
         props.handleClickOpen();
+      break;
+      case 'my-playlists':
+        goToPlaylist(history);
       break;
     };
   };
@@ -100,7 +116,7 @@ const NavDrawer = (props) => {
               key={item.id}
               onClick={() => handleMenu(item, props.history)}
             >
-              <ListItemIcon>{index % 2 === 0 ? <LibraryMusicIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItem>
           ))}

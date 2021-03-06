@@ -9,14 +9,12 @@ import {
     StyledDialogActions,
     StyledButton 
 } from './styles';
-import { useHistory } from 'react-router-dom';
 import { useRequestData } from '../../hooks/useRequestData';
 import { BASE_URL, axiosConfig } from '../../constants/requestConfig';
 import { addTrackToPlaylist } from '../../services/entities/playlist';
 
 const SelectPlaylistDialog = (props) => {
-    const history = useHistory();
-    const { data, getData } = useRequestData(`${BASE_URL}/playlist`, axiosConfig, undefined);
+    const { data } = useRequestData(`${BASE_URL}/playlist`, axiosConfig, undefined);
     const [option, setOption] = useState('');
     const [playlists, setPlaylists] = useState([]);
     const [selectedPlaylist, setSelectedPlaylist] = useState(undefined);
@@ -44,7 +42,7 @@ const SelectPlaylistDialog = (props) => {
             playlistId: selectedPlaylist.id
         };
 
-        addTrackToPlaylist(body);
+        addTrackToPlaylist(body, props.update);
         props.handleClose();
     };
 

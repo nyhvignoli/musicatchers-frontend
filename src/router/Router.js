@@ -6,34 +6,33 @@ import CreateMusicScreen from '../screens/CreateMusicScreen/CreateMusicScreen';
 import MusicFeedScreen from '../screens/MusicFeedScreen/MusicFeedScreen';
 import MusicDetailsScreen from '../screens/MusicDetailsScreen/MusicDetailsScreen';
 import ErrorScreen from '../screens/ErrorScreen/ErrorScreen';
+import PlaylistScreen from '../screens/PlaylistScreen/PlaylistScreen';
 
 const Router = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route
-                    exact path={['/', '/login']}
-                    component={HomeScreen}
-                />
-                <Route 
-                    exact path={'/signup'}
-                    component={SignupScreen}
-                />
-                <Route 
-                    exact path={'/music/create'}
-                    component={CreateMusicScreen}
-                />
-                <Route 
-                    exact path={'/music'}
-                    component={MusicFeedScreen}
-                />
-                <Route 
-                    exact path={'/music/:id'}
-                    component={MusicDetailsScreen}
-                />
-                <Route 
-                    component={ErrorScreen}
-                />
+                <Route exact path={['/', '/login']}>
+                    <HomeScreen/>
+                </Route>
+                <Route exact path={'/signup'}>
+                    <SignupScreen/>
+                </Route>    
+                <Route exact path={'/music/create'}>
+                    <CreateMusicScreen/>
+                </Route>     
+                <Route exact path={'/music'}>
+                    <MusicFeedScreen/>
+                </Route>     
+                <Route exact path={'/music/:id'}>
+                    <MusicDetailsScreen/>
+                </Route>   
+                <Route exact path={'/playlist'}>
+                    <PlaylistScreen/>
+                </Route>  
+                <Route>
+                    <ErrorScreen/>
+                </Route>
             </Switch>
         </BrowserRouter>
     );
