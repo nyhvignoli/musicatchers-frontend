@@ -2,12 +2,12 @@ import axios from 'axios';
 import { BASE_URL, axiosConfig } from '../../constants/requestConfig';
 import { goToMusicFeed } from '../../router/coordinator';
 
-export const createPlaylist = (body, history) => {
+export const createPlaylist = (body, history, update) => {
     axios.put(`${BASE_URL}/playlist`, body, axiosConfig)
     .then((res) => {
         console.log(res.data);
         window.alert(`Sua playlist '${body.name}' foi criada com sucesso!`);
-        goToMusicFeed(history);
+        update();
     }).catch(error => {
         window.alert('Erro ao criar playlist :(');
         console.log(

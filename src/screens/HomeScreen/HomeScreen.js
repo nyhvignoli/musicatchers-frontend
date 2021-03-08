@@ -8,7 +8,6 @@ import { goToSignup } from '../../router/coordinator';
 import { useRedirectUser } from '../../hooks/useRedirectUser';
 
 const HomeScreen = () => {
-
   useRedirectUser();
   const history = useHistory();
 

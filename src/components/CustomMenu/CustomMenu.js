@@ -3,9 +3,15 @@ import { Menu, MenuItem } from '@material-ui/core';
 import { goToMusicDetails } from '../../router/coordinator';
 import SelectPlaylistDialog from '../../components/SelectPlaylistDialog/SelectPlaylistDialog';
 import { useRequestData } from '../../hooks/useRequestData';
-import { BASE_URL, axiosConfig } from '../../constants/requestConfig';
+import { BASE_URL } from '../../constants/requestConfig';
 
 const CustomMenu = (props) => {
+
+    const axiosConfig = {
+        headers: {
+          authorization: window.localStorage.getItem('token')
+        }
+    };
 
     const { data, getData } = useRequestData(`${BASE_URL}/playlist`, axiosConfig, undefined);
     const [playlists, setPlaylists] = useState([]);
@@ -46,7 +52,7 @@ const CustomMenu = (props) => {
                 <MenuItem onClick={props.handleClose}>Excluir</MenuItem>
             </Menu>
             { playlists && open && 
-                <SelectPlaylistDialog 
+                <SelectPlaylistDialog
                     open={open}
                     handleClose={handleClose}
                     update={getData}

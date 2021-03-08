@@ -25,7 +25,7 @@ const FormDialog = (props) => {
             description: form.description
         };
 
-        createPlaylist(body, history);
+        createPlaylist(body, history, props.upDate);
         props.handleClose();
     };
 
