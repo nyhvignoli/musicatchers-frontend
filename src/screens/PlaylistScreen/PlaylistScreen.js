@@ -22,6 +22,7 @@ const PlaylistScreen = () => {
             authorization: window.localStorage.getItem('token')
         }
     };
+    
     const { data, getData } = useRequestData(`${BASE_URL}/playlist`, axiosConfig, undefined);
     const [open, setOpen] = useState(false);
 

@@ -25,8 +25,8 @@ const GenreChipGroup = (props) => {
         return (
           <li key={genre.id}>
             <StyledChip
-                label={genre.name}
-                className={classes.chip}
+              label={genre.name}
+              className={classes.chip}
             />
           </li>
         );

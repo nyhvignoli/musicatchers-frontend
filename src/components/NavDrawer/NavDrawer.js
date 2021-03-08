@@ -13,7 +13,7 @@ import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 import { goToCreateMusic, goToMusicFeed, goToPlaylist } from '../../router/coordinator';
 import { useRequestData } from '../../hooks/useRequestData';
-import { axiosConfig, BASE_URL } from '../../constants/requestConfig';
+import { BASE_URL } from '../../constants/requestConfig';
 import ProfileInfo from '../ProfileInfo/ProfileInfo';
 import Progress from '../../components/Feedback/CircularProgress';
 import { BaseFlex } from '../../global/styles';
@@ -47,6 +47,12 @@ const useStyles = makeStyles((theme) => ({
 
 const NavDrawer = (props) => {
   const classes = useStyles();
+  const axiosConfig = {
+    headers: {
+      authorization: window.localStorage.getItem('token')
+    }
+  };
+  
   const { data } = useRequestData(`${BASE_URL}/user/profile`, axiosConfig, undefined);
 
   const menuItens = [

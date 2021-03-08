@@ -21,6 +21,7 @@ const MusicFeedScreen = () => {
       authorization: window.localStorage.getItem('token')
     }
   };
+  
   const { data, getData } = useRequestData(`${BASE_URL}/music`, axiosConfig, undefined);
   const [open, setOpen] = useState(false);
 

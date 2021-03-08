@@ -10,10 +10,16 @@ import {
     StyledButton 
 } from './styles';
 import { useRequestData } from '../../hooks/useRequestData';
-import { BASE_URL, axiosConfig } from '../../constants/requestConfig';
+import { BASE_URL } from '../../constants/requestConfig';
 import { addTrackToPlaylist } from '../../services/entities/playlist';
 
 const SelectPlaylistDialog = (props) => {
+    const axiosConfig = {
+        headers: {
+          authorization: window.localStorage.getItem('token')
+        }
+    };
+    
     const { data } = useRequestData(`${BASE_URL}/playlist`, axiosConfig, undefined);
     const [option, setOption] = useState('');
     const [playlists, setPlaylists] = useState([]);
