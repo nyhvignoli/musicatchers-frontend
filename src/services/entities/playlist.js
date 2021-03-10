@@ -1,8 +1,13 @@
 import axios from 'axios';
-import { BASE_URL, axiosConfig } from '../../constants/requestConfig';
-import { goToMusicFeed } from '../../router/coordinator';
+import { BASE_URL } from '../../constants/requestConfig';
 
-export const createPlaylist = (body, history, update) => {
+const axiosConfig = {
+    headers: {
+      authorization: window.localStorage.getItem('token')
+    }
+};
+
+export const createPlaylist = (body, update) => {
     axios.put(`${BASE_URL}/playlist`, body, axiosConfig)
     .then((res) => {
         console.log(res.data);
