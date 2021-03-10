@@ -9,7 +9,6 @@ export const useRequestData = (url, headers, initialState) => {
         .then(res => {
             setData(res.data);
         }).catch(error => {
-            window.alert("Ocorreu um erro inesperado :(")
             console.log(
                 error.response && 
                 error.response.data || 

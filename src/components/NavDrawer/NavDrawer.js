@@ -110,8 +110,7 @@ const NavDrawer = (props) => {
           {data ? 
             <ProfileInfo 
               user={data}
-            /> : 
-            <Progress color="primary"/>
+            /> : <Progress color="secondary"/>
           }
         </BaseFlex>
         <Divider />

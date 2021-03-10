@@ -31,7 +31,7 @@ const MusicCard = (props) => {
         Álbum: {props.music.album}
       </Typography>
       <Typography variant="subtitle2" color="textSecondary">
-        {dateToString(props.music.date)}
+        {dateToString(props.music.createdAt)}
       </Typography>
     </div>
   );
