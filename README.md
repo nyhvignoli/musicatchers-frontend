@@ -30,7 +30,7 @@ Para instalar as dependências necessárias para rodar o projeto.
 
 ### `npm start`
 
-Roda a aplicação no mode de desenvolvimento.\
+Roda a aplicação no modo de desenvolvimento.\
 Abre o [http://localhost:3000](http://localhost:3000) para visualização no browser.
 
 A página irá recarregar a cada alteração no código.\
@@ -38,7 +38,7 @@ Você também poderá ver os erros no console.
 
 ### `npm test`
 
-Roda o test runner no mode interativo de observação.\
+Roda o test runner no modo interativo de observação.\
 Veja a sessão sobre [running tests](https://facebook.github.io/create-react-app/docs/running-tests) para mais informações.
 
 ### `npm run build`
