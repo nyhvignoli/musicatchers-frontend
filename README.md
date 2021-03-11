@@ -1,10 +1,99 @@
-# Getting Started with Create React App
+<a name="languages"></a>
+# MusiCatchers - Frontend
+
+<a id="pt-readme"></a>
+### Português | [English](#en-readme)
+Front-end do Projeto Full Stack do bootcamp da escola Labenu.
+Trata-se de uma aplicação com funcionalidades básicas de um site para streaming de músicas.
+
+Esse projeto foi desenvolvido com [Create React App](https://github.com/facebook/create-react-app).
+
+<a name="pt-menu"></a>
+- [Primeiros Passos](#primeiros-passos)
+- [Scripts Disponíveis](#pt-scripts)
+- [Funcionalidades](#funcionalidades)
+- [Bibliotecas e Frameworks](#bibliotecas)
+
+<a id="primeiros-passos"></a>
+## Primeiros Passos
+
+### `git clone <repository-url>`
+
+Para clonar esse repositório no seu computador.
+
+### `npm install`
+
+Para instalar as dependências necessárias para rodar o projeto.
+
+<a id="pt-scripts"></a>
+## Scripts Disponíveis
+
+### `npm start`
+
+Roda a aplicação no mode de desenvolvimento.\
+Abre o [http://localhost:3000](http://localhost:3000) para visualização no browser.
+
+A página irá recarregar a cada alteração no código.\
+Você também poderá ver os erros no console.
+
+### `npm test`
+
+Roda o test runner no mode interativo de observação.\
+Veja a sessão sobre [running tests](https://facebook.github.io/create-react-app/docs/running-tests) para mais informações.
+
+### `npm run build`
+
+Constrói a aplicação para produção na pasta `build`.\
+Veja a sessão sobre [deployment](https://facebook.github.io/create-react-app/docs/deployment) para mais informações.
+
+<a id="funcionalidades"></a>
+## Funcionalidades:
+* Cadastro
+* Login
+* Exibir informações da(o) usuária(o) que estiver logada(o)
+* Criar música
+* Listar todas as músicas
+* Exibir detalhes de uma música específica
+* Listar todos os gêneros musicais
+* Criar playlist
+* Adicionar música à playlist escolhida
+* Listar todas as músicas da playlist escolhida
+
+<a id="bibliotecas"></a>
+## Bibliotecas e Frameworks
+* React
+* React Router Dom
+* Dayjs
+* Axios
+* styled-components
+* Material-UI
+
+<a id="en-readme"></a>
+### [Português](#pt-readme) | English
+Front-end structure of the Full Stack Project developed at Labenu School bootcamp.
+An web site aplication with basic features of an music streaming website.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<a name="menu"></a>
+- [Getting Started](#getting-started)
+- [Available Scripts](#scripts)
+- [Features](#features)
+- [Libs and Frameworks](#libs)
 
-In the project directory, you can run:
+<a id="getting-started"></a>
+## Getting Started
+
+### `git clone <repository-url>`
+
+To clone this repository in your computer.
+
+### `npm install`
+
+To install all the necessary dependencies to run the project.
+
+<a id="scripts"></a>
+## Available Scripts
 
 ### `npm start`
 
@@ -22,49 +111,26 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+<a id="features"></a>
+## Features:
+* Signup
+* Login
+* Get current user infos
+* Create music
+* Display all musics
+* Display details of an especific music
+* Get all music genres
+* Create playlist
+* Add track to a playlist
+* Display all tracks of an especific playlist
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<a id="libs"></a>
+## Libs and Frameworks
+* React
+* React Router Dom
+* Dayjs
+* Axios
+* styled-components
+* Material-UI
