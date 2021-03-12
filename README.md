@@ -1,6 +1,8 @@
 <a name="languages"></a>
 # MusiCatchers - Frontend
 
+### Website >>> [musicatchers.surge.sh](http://musicatchers.surge.sh/)
+
 <a id="pt-readme"></a>
 ### Português | [English](#en-readme)
 Front-end do Projeto Full Stack do bootcamp da escola Labenu.
@@ -40,7 +42,7 @@ Você também poderá ver os erros no console.
 
 Roda o test runner no modo interativo de observação.\
 Veja a sessão sobre [running tests](https://facebook.github.io/create-react-app/docs/running-tests) para mais informações.
-
+ 
 ### `npm run build`
 
 Constrói a aplicação para produção na pasta `build`.\
@@ -68,10 +70,12 @@ Veja a sessão sobre [deployment](https://facebook.github.io/create-react-app/do
 * styled-components
 * Material-UI
 
+---
+
 <a id="en-readme"></a>
 ### [Português](#pt-readme) | English
 Front-end structure of the Full Stack Project developed at Labenu School bootcamp.
-An web site aplication with basic features of an music streaming website.
+An aplication with basic features of an music streaming website.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
