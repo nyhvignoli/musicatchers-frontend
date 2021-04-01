@@ -22,5 +22,6 @@ export const StyledTextField = styled(TextField)`
 `;
 
 export const StyledButton = styled(Button)`
+    width: 100%;
     color: #FFF;
 `;

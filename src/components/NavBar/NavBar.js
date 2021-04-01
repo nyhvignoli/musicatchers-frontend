@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom';
@@ -6,6 +6,9 @@ import { goBack, goToLogin } from '../../router/coordinator';
 import { MusicatchersHeaderLogo, StyledToolbar } from './styles';
 import { logout } from '../../services/entities/user';
 import musicatchersHeaderLogo from '../../assets/musicatchers-header-logo.png';
+import NavDrawer from '../NavDrawer/NavDrawer';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const NavBar = (props) => {
   const history = useHistory();
@@ -29,6 +32,17 @@ const NavBar = (props) => {
   return (
     <AppBar>
       <StyledToolbar>
+        {props.toggleDrawer &&
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={props.toggleDrawer(true)}
+            edge="start"
+          >
+            <MenuIcon />
+          </IconButton>
+        }
+        
         <MusicatchersHeaderLogo src={musicatchersHeaderLogo} />
         <Button 
           color="inherit"

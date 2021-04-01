@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { FormContainer, StyledTextField, StyledButton } from '../BaseForm/styles';
+import { StyledTextField, StyledButton } from '../BaseForm/styles';
+import { Container, FormContainer } from "../../global/styles";
 import { useForm } from '../../hooks/useForm';
 import { useHistory } from 'react-router-dom';
 import GenreToggleGroup from '../GenreToggleGroup/GenreToggleGroup';
@@ -52,9 +53,8 @@ const CreateMusicForm = () => {
     };
 
     return (
-        <div>
-            <FormContainer 
-                className={classes.root}  
+        <Container>
+            <FormContainer  
                 autoComplete="off"
                 onSubmit={onSubmitForm}
             >
@@ -116,7 +116,7 @@ const CreateMusicForm = () => {
                     Adicionar Música
                 </StyledButton>
             </FormContainer>
-        </div>
+        </Container>
     );
 };
 

@@ -15,7 +15,6 @@ import Error from '../../components/Error/Error';
 const MusicFeedScreen = () => {
 
   useProtectedPage();
-  const history = useHistory();
   const axiosConfig = {
     headers: {
       authorization: window.localStorage.getItem('token')
@@ -24,6 +23,15 @@ const MusicFeedScreen = () => {
   
   const { data, getData } = useRequestData(`${BASE_URL}/music`, axiosConfig, undefined);
   const [open, setOpen] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false);
+
+  const toggleDrawer = (open) => (event) => {
+    if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setOpenDrawer(open);
+  };
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -40,6 +48,7 @@ const MusicFeedScreen = () => {
       <NavBar
         action={'logout'}
         buttonText={'Sair'}
+        toggleDrawer={toggleDrawer}
       />
       { open && 
         <FormDialog 
@@ -48,10 +57,7 @@ const MusicFeedScreen = () => {
           handleClose={handleClose}
         />}  
       <ContentContainer>
-        <NavDrawer
-          history={history}
-          handleClickOpen={handleClickOpen}
-        />
+        <NavDrawer open={openDrawer} toggleDrawer={toggleDrawer} handleClickOpen={handleClickOpen}/>
         <FlexBox
           column
         >

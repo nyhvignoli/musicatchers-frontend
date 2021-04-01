@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { StyledTextField, StyledButton } from '../BaseForm/styles';
-import { Container, FormContainer } from "./styles";
+import { Container, FormContainer } from "../../global/styles";
 import { useForm } from '../../hooks/useForm';
 import { login } from '../../services/entities/user';
 import { useHistory } from 'react-router-dom';
