@@ -3,6 +3,11 @@ import { backgroundGradient } from '../../constants/colors';
 
 export const MainContainer = styled.div`
     display: flex;
+    height: 100vh;
+
+    @media(max-width: 1024px) {
+        flex-direction: column;
+    }
 `;
 
 export const LogoContainer = styled.div`
@@ -10,14 +15,17 @@ export const LogoContainer = styled.div`
     justify-content: center;
     align-items: center;
     background-color: #000;
-    height: 100vh;
+    max-width: 100vw;
     width: 50%;
-    min-width: 500px;
+
+    @media(max-width: 1024px) {
+        width: 100%;
+    }
 `;
 
 export const Logo = styled.img`
-    width: 500px;
-    height: 500px;
+    width: 80%;
+    height: 80%;
 `;
 
 export const LoginContainer = styled.div`
@@ -27,6 +35,11 @@ export const LoginContainer = styled.div`
     align-items: center;
     background-image: linear-gradient(${backgroundGradient});
     width: 50%;
+
+    @media(max-width: 1024px) {
+        width: 100%;
+        flex-grow: 1;
+    }
 `;
 
 export const ButtonContainer = styled.div`

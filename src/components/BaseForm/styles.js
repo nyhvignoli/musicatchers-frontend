@@ -3,9 +3,9 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 export const FormContainer = styled.form`
-    width: 80vw;
+    width: 90vw;
     max-width: 400px;
-    min-width: 100px;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,6 +22,5 @@ export const StyledTextField = styled(TextField)`
 `;
 
 export const StyledButton = styled(Button)`
-    width: 100%;
     color: #FFF;
 `;
