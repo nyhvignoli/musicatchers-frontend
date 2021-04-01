@@ -25,6 +25,15 @@ const PlaylistScreen = () => {
     
     const { data, getData } = useRequestData(`${BASE_URL}/playlist`, axiosConfig, undefined);
     const [open, setOpen] = useState(false);
+    const [openDrawer, setOpenDrawer] = useState(false);
+
+    const toggleDrawer = (open) => (event) => {
+      if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        return;
+      }
+  
+      setOpenDrawer(open);
+    };
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -41,7 +50,9 @@ const PlaylistScreen = () => {
             <NavBar
                 action={'logout'}
                 buttonText={'Sair'}
+                toggleDrawer={toggleDrawer}
             />
+            <NavDrawer open={openDrawer} toggleDrawer={toggleDrawer} handleClickOpen={handleClickOpen}/>
             { open && 
             <FormDialog 
                 open={open}
@@ -49,10 +60,6 @@ const PlaylistScreen = () => {
                 handleClose={handleClose}
             />}  
             <ContentContainer>
-                <NavDrawer
-                    history={history}
-                    handleClickOpen={handleClickOpen}
-                />
                 <PlaylistContainer>
                     {data && data.length === 0 && <Error message="Você ainda não tem nenhuma playlist"/>}
                     {data ? data.map((playlist) => {

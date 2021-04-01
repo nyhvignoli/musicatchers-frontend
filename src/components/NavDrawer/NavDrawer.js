@@ -11,12 +11,17 @@ import HomeIcon from '@material-ui/icons/Home';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
+import IconButton from '@material-ui/core/IconButton';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { goToCreateMusic, goToMusicFeed, goToPlaylist } from '../../router/coordinator';
 import { useRequestData } from '../../hooks/useRequestData';
 import { BASE_URL } from '../../constants/requestConfig';
 import ProfileInfo from '../ProfileInfo/ProfileInfo';
 import Progress from '../../components/Feedback/CircularProgress';
 import { BaseFlex } from '../../global/styles';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import { useHistory } from 'react-router';
 
 const drawerWidth = 240;
 
@@ -54,6 +59,7 @@ const NavDrawer = (props) => {
   };
   
   const { data } = useRequestData(`${BASE_URL}/user/profile`, axiosConfig, undefined);
+  const history = useHistory();
 
   const menuItens = [
     { 
@@ -96,15 +102,21 @@ const NavDrawer = (props) => {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Drawer
+      <SwipeableDrawer
         className={classes.drawer}
-        variant="permanent"
         classes={{
           paper: classes.drawerPaper,
         }}
         anchor="left"
+        open={props.open}
+        onClose={props.toggleDrawer(false)}
+        onOpen={props.toggleDrawer(true)}
       >
-        <div className={classes.toolbar} />
+        <div>
+          <IconButton onClick={props.toggleDrawer(false)}>
+            <ChevronLeftIcon />
+          </IconButton>
+        </div>
         <Divider />
         <BaseFlex>
           {data ? 
@@ -119,14 +131,14 @@ const NavDrawer = (props) => {
             <ListItem 
               button 
               key={item.id}
-              onClick={() => handleMenu(item, props.history)}
+              onClick={() => handleMenu(item, history)}
             >
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItem>
           ))}
         </List>
-      </Drawer>
+      </SwipeableDrawer>
     </div>
   );
 };
